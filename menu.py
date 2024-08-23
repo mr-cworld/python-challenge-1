@@ -164,24 +164,29 @@ while place_order:
 
     while True:
         # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ").strip().lower()
 
         # 5. Check the customer's input
 
-                # Keep ordering
+        if keep_ordering == 'y' or keep_ordering =='yes':
+            break
+        # Keep ordering
+        # Exit the keep ordering question loop
 
-                # Exit the keep ordering question loop
-
-                # Complete the order
-
-                # Since the customer decided to stop ordering, thank them for
-                # their order
-
-                # Exit the keep ordering question loop
-
+        elif keep_ordering == 'n' or keep_ordering == 'no':
+            # Complete the order
+            place_order = False
+            
+            # Since the customer decided to stop ordering, thank them for
+            # their order
+            print ("Thank you for your order. Here is what you have:")
+        
+            # Exit the keep ordering question loop
+            break
 
                 # Tell the customer to try again
-
+        else:
+            print("Sorry didnt understand, please enter Y or N to continue")
 
 # Print out the customer's order
 print("This is what we are preparing for you.\n")
@@ -194,8 +199,13 @@ print("--------------------------|--------|----------")
 
 # 6. Loop through the items in the customer's order
 
+for item in order_list:
+    
     # 7. Store the dictionary items as variables
-
+    item_name = item[0]
+    item_price = item[1]
+    item_quantity = item[2]
+    
 
     # 8. Calculate the number of spaces for formatted printing
 
@@ -209,3 +219,5 @@ print("--------------------------|--------|----------")
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
+   
+    break
